@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Count.ly</title>
+      <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <head>
+	<title>Count.ly</title>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,900" rel="stylesheet"/>
+	<link type='text/css' href="css/style.css" rel="stylesheet"/>
+</head>
+
+<body>
+<h1><a href="#" data-src="https://66.media.tumblr.com/d7319a0b492cc8ac2d49b7e0c9e6e4cf/tumblr_inline_nzw9kx9vDs1qc0sxf_500.gif">COUNT</a>.LY</h1>
+
+<div id="counter">
+  <button id="minus">&nbsp;&nbsp;&ndash;&nbsp;&nbsp;</button>
+  <span id="count"></span>
+  <button id="plus">&nbsp;&nbsp;+&nbsp;&nbsp;</button>
+  <br/>
+  <button id="clear">&nbsp;&nbsp;CLEAR&nbsp;&nbsp;</button>
+</div>
+
+<script type='text/x-handlebars-template' id='count-template'>
+	<span class = "count">{{n}}</span>
+</script>
+
+</body>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js'></script>
+<script src='https://cdn.rawgit.com/tholman/giflinks/master/GifLinks.min.js'></script>
+
+<!-- Working Custom Code for for plus & minus clicks -->
+<!-- <script>
+  (function(name,path,ctx){ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}})
+  ('KeenTracking', 'https://cdn.jsdelivr.net/npm/keen-tracking@4/dist/keen-tracking.min.js', this);
+
+  KeenTracking.ready(function(){
+    const client = new KeenTracking({
+      projectId: '5c8bf67bc9e77c0001cf5fc6',
+      writeKey: '1625B3DDB3D0C3106CCE292398435A5EE479D3EDF3171ECAE00664434C4F076BF9D020F214D648FDEE447716944AC96C4304CC9F80DD7385C31AEB8626F9986EB755FA46DC292AA589980844DF4E4714912C7E29C6B83C1DE29FC5B9AE699170'
+    });
+
+    client.recordEvent('plus', {
+      increment: 1
+    });
+    client.recordEvent('minus', {
+      increment: -1
+    });
+  });
+</script> -->
+
+
+<script>
+  (function(name,path,ctx){ctx[name]=ctx[name]||{ready:function(fn){var h=document.getElementsByTagName('head')[0],s=document.createElement('script'),w=window,loaded;s.onload=s.onerror=s.onreadystatechange=function(){if((s.readyState&&!(/^c|loade/.test(s.readyState)))||loaded){return}s.onload=s.onreadystatechange=null;loaded=1;ctx[name].ready(fn)};s.async=1;s.src=path;h.parentNode.insertBefore(s,h)}}})
+  ('KeenTracking', 'https://cdn.jsdelivr.net/npm/keen-tracking@4/dist/keen-tracking.min.js', this);
+
+  KeenTracking.ready(function(){
+    const client = new KeenTracking({
+      projectId: '5c8bf67bc9e77c0001cf5fc6',
+      writeKey: '1625B3DDB3D0C3106CCE292398435A5EE479D3EDF3171ECAE00664434C4F076BF9D020F214D648FDEE447716944AC96C4304CC9F80DD7385C31AEB8626F9986EB755FA46DC292AA589980844DF4E4714912C7E29C6B83C1DE29FC5B9AE699170'
+    });
+    // Record events automatically
+    client.initAutoTracking({recordFormSubmits: true});
+    const btnClicks = KeenTracking.utils.listener('button');
+    btnClicks.on('click', (e) => {
+      domProfile = KeenTracking.helpers.getDomNodeProfile(e.target)
+      return client.recordEvent('buttonClicks', {
+        domProfile,
+        e
+      })
+    });
+  });
+</script>
+
+
+
+    <script  src="js/index.js"></script>
+</body>
+
+</html>
